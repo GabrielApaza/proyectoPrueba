@@ -7,6 +7,8 @@ import lombok.NoArgsConstructor;
 
 import java.io.Serializable;
 import java.util.Date;
+import java.util.List;
+
 @Data
 @Entity
 @Table
@@ -17,5 +19,9 @@ public class Sector {
 
    @Enumerated(value=EnumType.STRING)
    private Sector sector;
+
+   //como funciona esta relación???
+    @OneToMany(mappedBy = "sector")
+   List<Socio> socioList;
 
 }
