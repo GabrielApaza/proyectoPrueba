@@ -8,6 +8,7 @@ import java.util.List;
 
 @Repository
 public interface SocioRepository extends JpaRepository<Socio, Long> {
+    public abstract List<Socio> findByidSocio(String idSocio);
     public abstract List<Socio> findBynombreSocioContainingIgnoreCase(String nombreSocio);
     public abstract List<Socio>findByCuit(String cuit);
     public abstract List<Socio>findByCuitContaining(String cuit);

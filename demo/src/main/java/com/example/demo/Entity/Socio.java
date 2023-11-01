@@ -4,7 +4,9 @@ import com.example.demo.Enum.Activo;
 import com.example.demo.Enum.Sectorizacion;
 import com.example.demo.Enum.TipoSocio;
 import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import java.io.Serializable;
 import java.util.Date;
@@ -12,6 +14,8 @@ import java.util.Date;
     @Data
     @Entity
         @Table(name="socios")
+        @AllArgsConstructor
+        @NoArgsConstructor
         public class Socio implements Serializable {
         @Id
         @GeneratedValue(strategy= GenerationType.IDENTITY)
@@ -63,6 +67,7 @@ import java.util.Date;
         @ManyToOne
         @JoinColumn(name="sector")
         Sector sector;
+
 
         public void setIdSocio(Long idSocio) {
         this.idSocio = idSocio;
@@ -183,5 +188,7 @@ import java.util.Date;
         public String getidSocio() {
             return null;
         }
+
+
     }
 

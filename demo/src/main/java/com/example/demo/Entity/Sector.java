@@ -16,7 +16,7 @@ public class Sector {
    @Enumerated(value=EnumType.STRING)
    private Sector sector;
 
-   //como funciona esta relación??? Consultar duda?
+   //como funciona esta relación??? Consultar duda?Ezequiel
     @OneToMany(mappedBy = "sector")
    List<Socio> socioList;
 

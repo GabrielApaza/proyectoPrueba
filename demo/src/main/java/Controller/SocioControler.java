@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.servlet.view.RedirectView;
 
 
 @RestController
@@ -19,8 +20,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 public class SocioControler {
         @Autowired
-        private SocioDataServices sds;
-
+        private SocioDataServices sds; //servicio
         @GetMapping()
         public String info(){
 
@@ -59,42 +59,27 @@ public class SocioControler {
 
         @PostMapping("/alta")
         public String save(
-                @RequestParam("idSocio")               Long idSocio,
                 @RequestParam("nombreSocio")           String nombreSocio,
                 @RequestParam("cuit")                  String cuit,
                 @RequestParam("telefono")              String telefono,
                 @RequestParam("email")                 String email,
                 @RequestParam("paginaWeb")             String paginaWeb,
                 @RequestParam("perfilSocio")           String perfilSocio,
-                @RequestParam("fechaAlta")             String fechaAlta,
-                @RequestParam("fechaModificacion")     String fechaModificacion,
-                @RequestParam("fechaBaja")             String fechaBaja,
                 @RequestParam("tipoSocio")             String tipoSocio,
                 @RequestParam("Sectorizacion")         String sectorizacion
-                //@RequestParam("Activo")              String activo
+
         ){
             try{
                 Socio socio;
-                socio = new Socio(
-                        idSocio,                                 //idSocio,
-                        nombreSocio,                             //nombre,
-                        cuit,                                    //cuit,
-                        telefono,                                //telefono
-                        email,                                   //email
-                        paginaWeb,                               //paginaWeb
-                        perfilSocio,                             //perfilSocio
-                        fechaAlta,                               //fechaAlta
-                        fechaModificacion,                       //fechaModifucacion
-                        fechaBaja,                              //fechaBaja
-                        TipoSocio.valueOf(tipoSocio),            // tipoSocio
-                        Sectorizacion.valueOf(sectorizacion),   //sectorizacion
-                        Activo.valueOf(activo)
+                socio = new Socio();
+                socio.setNombreSocio(nombreSocio);
+                socio.setCuit(cuit); //completar los atributos
+                socio.setTipoSocio(TipoSocio.valueOf(tipoSocio));
 
-                );
 
                 sds.save(socio);
 
-                return socio.getidSocio() +"";
+                return new RedirectView();
             }catch(Exception e){
                 return "0";
             }
