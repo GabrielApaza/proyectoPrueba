@@ -15,13 +15,13 @@ import java.util.List;
 public class Sector {
     @Id
     @GeneratedValue(strategy= GenerationType.IDENTITY)
-    private Long id_sector;
+    private Long idSector;
 
-   @Enumerated(value=EnumType.STRING)
-   private Sector sector;
+    @Enumerated(value=EnumType.STRING)
+    private String nombreSector;
 
-   //como funciona esta relación??? en consultas Preguntar a Ezequiel
+    //como funciona esta relación??? en consultas Preguntar a Ezequiel
     @OneToMany(mappedBy = "sector")
-   List<Socio> socioList;
+    List<Socio> socioList;
 
 }
