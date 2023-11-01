@@ -74,7 +74,12 @@ public class SocioControler {
                 socio = new Socio();
                 socio.setNombreSocio(nombreSocio);
                 socio.setCuit(cuit); //completar los atributos
+                socio.setTelefono(telefono);
+                socio.setEmail(email);
+                socio.setPaginaWeb(paginaWeb);
+                socio.setPerfilSocio(perfilSocio);
                 socio.setTipoSocio(TipoSocio.valueOf(tipoSocio));
+                socio.setSectorizacion(sectorizacion);
 
 
                 sds.save(socio);
