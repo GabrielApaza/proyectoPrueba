@@ -13,28 +13,28 @@ import java.util.Date;
         public class Socio implements Serializable {
         @Id
         @GeneratedValue(strategy= GenerationType.IDENTITY)
-        private Long id_socio;
+        private Long idSocio;
 
         @Column(name="cuit_empresa", nullable=false, length = 12)
-        private String cuit_empresa;
+        private String cuit;
 
         @Column(name="nombre_empresa", nullable=false, length = 50)
-        private String nombre_empresa;
+        private String nombreSocio;
 
         @Column(name="telefono", nullable=false, length = 13)
-        private String telefono;
-
+        private List<String> telefonos;
+/**
         @Column(name="telefono_fax", nullable=true, length = 13)
         private String telefono_fax;
-
+*/
         @Column(name="email", nullable=true, length = 30, unique=true)
         private String email;
 
         @Column(name="pagina web", nullable=true, length = 13)
-        private String pagina_web;
+        private String paginaWeb;
 
         @Column(name="perfil socio", nullable=true, length = 20)
-        private String perfil_socio;
+        private String perfilSocio;
 
         @Column(name="fecha_alta")
         @Temporal(TemporalType.DATE)
@@ -48,10 +48,10 @@ import java.util.Date;
         private Date fecha_baja;
 
         @Enumerated(value=EnumType.STRING)
-        private Tipo_Socio tipo_socio;
+        private TipoSocio tipoSocio;
 
         @Enumerated(value=EnumType.STRING)
-        private Activo activo;
+        private Boolean activo;
 
         @ManyToOne
         @JoinColumn(name="domicilio")
@@ -59,5 +59,6 @@ import java.util.Date;
 
         @ManyToOne
         @JoinColumn(name="sector")
-        Sector sector;}
+        Sector sector;
+        }
 
