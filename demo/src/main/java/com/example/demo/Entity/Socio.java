@@ -1,6 +1,6 @@
 package com.example.demo.Entity;
 
-import com.example.demo.Enum.Activo;
+/*import com.example.demo.Enum.Activo;
 import com.example.demo.Enum.Sector;
 import com.example.demo.Enum.TipoSocio;
 import jakarta.persistence.*;
@@ -65,3 +65,4 @@ import java.util.Date;
         Domicilio domicilio;
 
     }
+**/
